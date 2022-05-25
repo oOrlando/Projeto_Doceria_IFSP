@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProdutoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-
-Route::get('/product', function () {
-    return view('product');
-});
+Route::get('/',[ProdutoController::class, 'inicial']);
+Route::get('/cad_produto', [ProdutoController::class, 'cadastra']);
+Route::post('/produtos', [ProdutoController::class, 'store']);
 
 
 

@@ -19,7 +19,7 @@ class CreateProdutoTable extends Migration
             $table->double('preco');
             $table->string('nome', 30);
             $table->string('descrição', 60);
-            $table->string('imagem', 30);
+            $table->string('imagem', 50);
             $table->integer('estoque_minimo');
             $table->integer('estoque_maximo');
             $table->integer('qtd_estoque');
