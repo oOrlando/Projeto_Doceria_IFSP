@@ -19,7 +19,7 @@ class CreateUsuarioTable extends Migration
             $table->string('nome', 60);
             $table->string('cpf', 14);
             $table->string('email', 60);
-            $table->string('senha', 12);
+            $table->string('senha', 99);
             $table->date('datanascimento');
             $table->char('sexo', 1);
             $table->string('tipousuario', 10)->nullable();

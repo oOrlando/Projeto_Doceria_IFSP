@@ -20,6 +20,7 @@ class CreatePedidoTable extends Migration
             $table->double('valor');
             $table->unsignedInteger('usuario_id');
             $table->unsignedInteger('forma_pagamento_id');
+            $table->string('situacao', 45);
 
             $table->index(["usuario_id"], 'fk_pedido_usuario1_idx');
 
