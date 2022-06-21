@@ -21,6 +21,14 @@ class UserController extends Controller
         $user->save();
 
 
+        return $user;   
+    }
+
+    function Login (Request $req) {
+        $user = User::where('email',$req->email)->first();
+        if (!$user || !Hash::check($req->senha,$user->senha)) {
+            return ["error"=>"E-mail ou senha inválidos!"];
+        }
         return $user;
     }
 }
