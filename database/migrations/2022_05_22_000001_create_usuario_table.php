@@ -21,7 +21,7 @@ class CreateUsuarioTable extends Migration
             $table->string('email', 60);
             $table->string('senha', 99);
             $table->date('datanascimento');
-            $table->char('sexo', 1);
+            $table->string('telefone', 20);
             $table->string('tipousuario', 10)->nullable();
 
             $table->unique(["email"], 'email_UNIQUE');
