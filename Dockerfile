@@ -33,7 +33,6 @@ RUN chown -R www-data: /app
 RUN wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
 RUN chmod +x cloud_sql_proxy
 
-RUN ./cloud_sql_proxy -instances=annular-net-355013:southamerica-east1:doceria=tcp:1433 \
-                  -credential_file=chave.json &
+RUN ./vendor/bin/sail php artisan storage:link 
 
 CMD sh /app/docker/startup.sh
