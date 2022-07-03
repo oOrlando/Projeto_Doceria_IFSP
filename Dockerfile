@@ -29,6 +29,6 @@ RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
 RUN chown -R www-data: /app
-RUN chmod -R  777 /app/storage
+RUN sh -c "composer install && chmod -R 777 /var/www && php artisan migrate --seed && php artisan storage:link"
 
 CMD sh /app/docker/startup.sh
