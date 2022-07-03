@@ -24,11 +24,10 @@ RUN apk add --no-cache --virtual build-essentials \
     docker-php-ext-install zip && \
     apk del build-essentials && rm -rf /usr/src/php*
 
-RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar && mv composer.phar /usr/local/bin/composer"
+RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar && mv composer.phar /usr/local/bin/composer && php artisan storage:link"
 RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
 RUN chown -R www-data: /app
-RUN sh -c "composer install && chmod -R 777 /var/www && php artisan migrate --seed && php artisan storage:link"
 
 CMD sh /app/docker/startup.sh
