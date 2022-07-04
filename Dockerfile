@@ -28,8 +28,15 @@ RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar 
 RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
-RUN chown -R www-data: /app
 
-RUN ln -s ../storage/app/public storage
+RUN chmod +x /entrypoint.sh && \
+    rm -f /app/storage/logs/* /app/public/storage && \
+    php /app/artisan storage:link && \
+    mkdir /var/run/nginx && \
+    chmod -R 777 /app/storage /app/app /app/public/app && \
+    chown -R www-data:www-data /app/storage /app/app /app/public/app && \
+    chown -R www-data:www-data /var/log/nginx /var/cache/nginx /var/run/nginx
+
+RUN chown -R www-data: /app
 
 CMD sh /app/docker/startup.sh

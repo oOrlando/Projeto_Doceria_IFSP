@@ -86,8 +86,7 @@ class ProdutoController extends Controller
 
 
 
-
-
+    
     public function cadastra(){
         $produtos = Produto::all();
 
