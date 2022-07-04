@@ -29,7 +29,8 @@ RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
 
-RUN php /app/artisan storage:link 
+RUN php /app/artisan storage:link && \
+    chmod -R 777 /app/storage /app/app /app/public/app
 
 RUN chown -R www-data: /app
 
