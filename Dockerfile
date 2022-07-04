@@ -29,10 +29,7 @@ RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
 
-RUN chmod +x /entrypoint.sh && \
-    rm -f /app/storage/logs/* /app/public/storage && \
-    php /app/artisan storage:link && \
-    mkdir /var/run/nginx && \
+RUN php /app/artisan storage:link && \
     chmod -R 777 /app/storage /app/app /app/public/app && \
     chown -R www-data:www-data /app/storage /app/app /app/public/app && \
     chown -R www-data:www-data /var/log/nginx /var/cache/nginx /var/run/nginx
