@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-        
+        Aws\Laravel\AwsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -210,8 +210,9 @@ return [
     |
     */
 
+
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'AWS' => Aws\Laravel\AwsFacade::class,
     ])->toArray(),
 
 ];

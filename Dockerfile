@@ -26,11 +26,9 @@ RUN apk add --no-cache --virtual build-essentials \
 
 RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar && mv composer.phar /usr/local/bin/composer"
 RUN cd /app && \
-    /usr/local/bin/composer install --no-dev
-
-
-RUN php /app/artisan storage:link && \
-    chmod -R 777 /app/storage /app/public/
+    /usr/local/bin/composer install --no-dev  && \
+    /usr/local/bin/composer require league/flysystem-aws-s3-v3  && \
+    /usr/local/bin/composer require league/flysystem-aws-s3-v3
 
 RUN chown -R www-data: /app
 

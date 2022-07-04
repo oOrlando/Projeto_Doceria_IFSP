@@ -29,12 +29,12 @@ class ProdutoController extends Controller
             $product->preco = $req->input('preco');
             $product->nome = $req->input('nome');
             $product->descrição = $req->input('descrição');
-            $product->imagem = $req->file('imagem')->store('produtos');
+            $$product->imagem=$req->file('imagem')->store('produtos','s3');
             $product->estoque_minimo = $req->input('estoque_minimo');
             $product->estoque_maximo = $req->input('estoque_maximo');
             $product->qtd_estoque = $req->input('qtd_estoque');
             $product->save();
-        
+            
             return $product;
         }            
     }
@@ -67,7 +67,7 @@ class ProdutoController extends Controller
         $product->qtd_estoque = $req->input('qtd_estoque');
         if ($req->file('imagem'))
         {
-            $product->imagem=$req->file('imagem')->store('produtos');
+            $product->imagem=$req->file('imagem')->store('produtos','s3');
         }
         $product->save();
 
