@@ -30,7 +30,7 @@ RUN cd /app && \
 
 
 RUN php /app/artisan storage:link && \
-    chmod -R 777 /app/storage /app/app /app/public/app
+    chmod -R 777 /app/storage /app/public/
 
 RUN chown -R www-data: /app
 
