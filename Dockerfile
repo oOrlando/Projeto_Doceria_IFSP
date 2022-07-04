@@ -29,10 +29,7 @@ RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
 
-RUN php /app/artisan storage:link && \
-    chmod -R 777 /app/storage /app/app /app/public/app && \
-    chown -R www-data:www-data /app/storage /app/app /app/public/app && \
-    chown -R www-data:www-data /var/log/nginx /var/cache/nginx /var/run/nginx
+RUN php /app/artisan storage:link 
 
 RUN chown -R www-data: /app
 
