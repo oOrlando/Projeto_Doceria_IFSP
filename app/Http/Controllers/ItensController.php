@@ -20,4 +20,9 @@ class ItensController extends Controller
 
         return $itens;   
     }
+
+    public function searchItens($id){
+    
+        return Itens::where('pedido_id','Like',"$id")->get();
+    }
 }

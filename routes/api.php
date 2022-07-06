@@ -33,9 +33,12 @@ Route::delete('deleteProduct/{id}',[ProdutoController::class, 'deleteProduct']);
 Route::post('updateProduct/{id}',[ProdutoController::class, 'UpdateProduct']);
 Route::get('getProduct/{id}',[ProdutoController::class, 'getProduct']);
 Route::get('search/{id}',[ProdutoController::class, 'search']);
+Route::get('searchProduto/{id}',[ProdutoController::class, 'searchProduto']);
 
 Route::post('registerEnd',[EnderecoController::class, 'registerEnd']);
 
 Route::post('registerPedido',[PedidoController::class, 'registerPedido']);
+Route::get('searchPedido/{id}',[PedidoController::class, 'searchPedido']);
 
 Route::post('registerItens',[ItensController::class, 'registerItens']);
+Route::get('searchItens/{id}',[ItensController::class, 'searchItens']);

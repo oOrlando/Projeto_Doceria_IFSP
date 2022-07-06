@@ -21,4 +21,9 @@ class PedidoController extends Controller
 
         return $ped;   
     }
+
+    public function searchPedido($id){
+    
+        return Pedido::where('usuario_id','Like',"$id")->get();
+    }
 }
